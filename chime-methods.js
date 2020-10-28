@@ -8,10 +8,12 @@ const region = MEDIA_PLACEMENT_REGION;
 
 async function addAttendee(meetingId, externalId) {
   try {
-    const attendee = await chime.createAttendee({
-      MeetingId: meetingId,
-      ExternalUserId: externalId,
-    }).promise();
+    const attendee = await chime
+      .createAttendee({
+        MeetingId: meetingId,
+        ExternalUserId: externalId,
+      })
+      .promise();
     return attendee;
   } catch (err) {
     // handle error - you can retry with the same external id
