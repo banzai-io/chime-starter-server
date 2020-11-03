@@ -18,4 +18,10 @@ router.post('/meetings', async (req, res) => {
   res.json({meeting: {id: newMeeting.Meeting.MeetingId}});
 });
 
+router.post('/sessions', async (req, res) => {
+  const newMeeting = await createMeeting();
+  const newAttendee = await addAttendee(newMeeting.Meeting.MeetingId);
+  res.json({attendee: newAttendee, meeting: newMeeting});
+});
+
 module.exports = router;
